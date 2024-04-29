@@ -3,9 +3,277 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>gradebook</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    
+    <header>
+        <div class="icons-4">
+            <div class="image-student"><img src="img/student.png" alt="student"></img></div>
+            <div class="attendance-href"><a href="#">Attendance</a></div>
+            <div class="schedule-href"><a href="#">Schedule</a></div>
+            <div class="homework-href"><a href="#">Homework</a></div>
+        </div>
+        <div class="icons-0"></div>
+        <div class="icons-3">
+            <div class="header-img-1"><img src="img/bell.png" alt="bell"></img></div>
+            <div class="header-img-2"><img src="img/account.png" alt="account"></img></div>
+            <div class="header-img-3"><img src="img/exit.png" alt="exit"></img></div>
+        </div>
+    </header>
+
+    <div class="data-time" id="current_date_time_block"></div>
+    <script type="text/javascript">
+        /* функция добавления ведущих нулей */
+        /* (если число меньше десяти, перед числом добавляем ноль) */
+        function zero_first_format(value)
+        {
+            if (value < 10)
+            {
+                value='0'+value;
+            }
+            return value;
+        }
+        /* функция получения текущей даты и времени */
+        function date_time()
+        {
+            var current_datetime = new Date();
+            var day = zero_first_format(current_datetime.getDate());
+            var month = zero_first_format(current_datetime.getMonth()+1);
+            var year = current_datetime.getFullYear();
+            var hours = zero_first_format(current_datetime.getHours());
+            var minutes = zero_first_format(current_datetime.getMinutes());
+            var seconds = zero_first_format(current_datetime.getSeconds());
+            return day+"."+month+"."+year+" "+hours+":"+minutes+":"+seconds;
+        }
+        /* выводим текущую дату и время на сайт в блок с id "current_date_time_block" */
+        document.getElementById('current_date_time_block').innerHTML = date_time();
+    </script>
+
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+        <a class="nav-link-active" aria-current="page" href="#">1 lesson</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#">2 lesson</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#">3 lesson</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#">4 lesson</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#">5 lesson</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#">6 lesson</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#">7 lesson</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#">8 lesson</a>
+        </li>
+    </ul>
+
+        <div class="current-task">
+            <div class="group">
+                <p style="color: grey">Group</p>
+                <p>ABC-1234</p>
+            </div>
+            <div class="subject">
+                <p style="color: grey">Subject</p>
+                <p>HTML & CSS</p>
+            </div>
+            <label class="text" for="text-1">
+                <p style="color: grey">Lesson topic</p>
+                <input type="text" id="text-1"/>
+            </label>
+            <div class="button-homework">
+                <p style="color: grey">Homework</p>
+                <button class="homework" name="button">
+                    <a href="#">Add homework</a>
+                </button>
+            </div>
+        </div>
+
+        <div class="table-top">
+            <div class="number"></div>
+            <div class="name">Name</div>
+            <div class="gpa">GPA</div>
+            <div style="width: 80px;">Is present</div>
+            <div class="test">Test</div>
+            <div class="classwork">Classwork</div>
+            <div class="comment">Comment</div>
+        </div>
+
+        <div class="row">
+            <div class="number">1</div>
+            <div class="name">Ashton Hickman</div>
+            <div class="gpa">10</div>
+            <input class="radio-green" type="radio" name="radio-1" id="radio-green" />
+            <input class="radio-yellow" type="radio" name="radio-1" id="radio-yellow" />
+            <input class="radio-red" type="radio" name="radio-1" id="radio-red" />
+            <select style="height: 40px;" class="test" name="test" id="test">
+                <option value="">-</option>
+                <option value="">1</option>
+                <option value="">2</option>
+                <option value="">3</option>
+                <option value="">4</option>
+                <option value="">5</option>
+                <option value="">6</option>
+                <option value="">7</option>
+                <option value="">8</option>
+                <option value="">9</option>
+                <option value="">10</option>
+                <option value="">11</option>
+                <option value="">12</option>
+            </select>
+            <select style="height: 40px;" class="classwork" name="classwork" id="classwork">
+                <option value="">-</option>
+                <option value="">1</option>
+                <option value="">2</option>
+                <option value="">3</option>
+                <option value="">4</option>
+                <option value="">5</option>
+                <option value="">6</option>
+                <option value="">7</option>
+                <option value="">8</option>
+                <option value="">9</option>
+                <option value="">10</option>
+                <option value="">11</option>
+                <option value="">12</option>
+            </select>
+            <input class="comment" type="text" placeholder="" id="comment"/>
+        </div>
+
+        <hr>
+
+        <div class="row">
+            <div class="number">2</div>
+            <div class="name">Mischa Roberson</div>
+            <div class="gpa">9</div>
+            <input class="radio-green" type="radio" name="radio-2" id="radio-green" />
+            <input class="radio-yellow" type="radio" name="radio-2" id="radio-yellow" />
+            <input class="radio-red" type="radio" name="radio-2" id="radio-red" />
+            <select style="height: 40px;" class="test" name="test" id="test">
+                <option value="">-</option>
+                <option value="">1</option>
+                <option value="">2</option>
+                <option value="">3</option>
+                <option value="">4</option>
+                <option value="">5</option>
+                <option value="">6</option>
+                <option value="">7</option>
+                <option value="">8</option>
+                <option value="">9</option>
+                <option value="">10</option>
+                <option value="">11</option>
+                <option value="">12</option>
+            </select>
+            <select style="height: 40px;" class="classwork" name="classwork" id="classwork">
+                <option value="">-</option>
+                <option value="">1</option>
+                <option value="">2</option>
+                <option value="">3</option>
+                <option value="">4</option>
+                <option value="">5</option>
+                <option value="">6</option>
+                <option value="">7</option>
+                <option value="">8</option>
+                <option value="">9</option>
+                <option value="">10</option>
+                <option value="">11</option>
+                <option value="">12</option>
+            </select>
+            <input class="comment" type="text" placeholder="" id="comment"/>
+        </div>
+
+        <hr>
+
+        <div class="row">
+            <div class="number">3</div>
+            <div class="name">Jaydon Metcalfe</div>
+            <div class="gpa">11</div>
+            <input class="radio-green" type="radio" name="radio-3" id="radio-green" />
+            <input class="radio-yellow" type="radio" name="radio-3" id="radio-yellow" />
+            <input class="radio-red" type="radio" name="radio-3" id="radio-red" />
+            <select style="height: 40px;" class="test" name="test" id="test">
+                <option value="">-</option>
+                <option value="">1</option>
+                <option value="">2</option>
+                <option value="">3</option>
+                <option value="">4</option>
+                <option value="">5</option>
+                <option value="">6</option>
+                <option value="">7</option>
+                <option value="">8</option>
+                <option value="">9</option>
+                <option value="">10</option>
+                <option value="">11</option>
+                <option value="">12</option>
+            </select>
+            <select style="height: 40px;" class="classwork" name="classwork" id="classwork">
+                <option value="">-</option>
+                <option value="">1</option>
+                <option value="">2</option>
+                <option value="">3</option>
+                <option value="">4</option>
+                <option value="">5</option>
+                <option value="">6</option>
+                <option value="">7</option>
+                <option value="">8</option>
+                <option value="">9</option>
+                <option value="">10</option>
+                <option value="">11</option>
+                <option value="">12</option>
+            </select>
+            <input class="comment" type="text" placeholder="" id="comment"/>
+        </div>
+
+        <hr>
+        <div class="row">
+            <div class="number">4</div>
+            <div class="name">Gary Jacobson</div>
+            <div class="gpa">8</div>
+            <input class="radio-green" type="radio" name="radio-4" id="radio-green" />
+            <input class="radio-yellow" type="radio" name="radio-4" id="radio-yellow" />
+            <input class="radio-red" type="radio" name="radio-4" id="radio-red" />
+            <select style="height: 40px;" class="test" name="test" id="test">
+                <option value="">-</option>
+                <option value="">1</option>
+                <option value="">2</option>
+                <option value="">3</option>
+                <option value="">4</option>
+                <option value="">5</option>
+                <option value="">6</option>
+                <option value="">7</option>
+                <option value="">8</option>
+                <option value="">9</option>
+                <option value="">10</option>
+                <option value="">11</option>
+                <option value="">12</option>
+            </select>
+            <select style="height: 40px;" class="classwork" name="classwork" id="classwork">
+                <option value="">-</option>
+                <option value="">1</option>
+                <option value="">2</option>
+                <option value="">3</option>
+                <option value="">4</option>
+                <option value="">5</option>
+                <option value="">6</option>
+                <option value="">7</option>
+                <option value="">8</option>
+                <option value="">9</option>
+                <option value="">10</option>
+                <option value="">11</option>
+                <option value="">12</option>
+            </select>
+            <input class="comment" type="text" placeholder="" id="comment"/>
+        </div>
+   
+   <hr>
+   
 </body>
 </html>
